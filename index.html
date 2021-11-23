@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<video src="./audio/crazy_cooking.mp3" style="display:none;"></video>
+<video src="./audio/waveform_spectrum_sine.mp3" style="display:none;"></video>
+<video src="./audio/waveform_spectrum_triangle.mp3"style="display:none;"></video>
+<video src="./audio/waveform_spectrum_square.mp3" style="display:none;"></video>
+<video src="./audio/waveform_spectrum_sawtooth.mp3" style="display:none;"></video>
+<video src="./audio/nc43641.wav" style="display:none;"></video>
+ 
+<p>
+<button onclick="play();">再生する</button>
+<button onclick="stop();">停止する</button>
+<button onclick="generate_code();">テキストファイルを生成 ※現在の長さまで</button>
+</p>
+<table>
+  <tr>
+    <th>音の選択</th>
+    <td>
+      <input type="radio" name="grp_option1" value="1" id="m1" checked="checked"  onchange="play();"><label for="m1">砂嵐(曲)</label>
+      <input type="radio" name="grp_option1" value="2" id="m2" checked="checked"  onchange="play();"><label for="m1">砂嵐２(曲)</label><br>
+      <input type="radio" name="grp_option1" value="3" id="m3" onchange="play();"><label for="m2">サイン波(正弦波)</label>
+      <input type="radio" name="grp_option1" value="4" id="m4" onchange="play();"><label for="m3">三角波</label><br> 
+      <input type="radio" name="grp_option1" value="5" id="m5" onchange="play();"><label for="m4">矩形波</label> 
+      <input type="radio" name="grp_option1" value="6" id="m6" onchange="play();"><label for="m5">のこぎり波</label>
+      <input type="radio" name="grp_option1" value="7" id="m7" onchange="play();"><label for="m6">440Hz</label><br>
+      <input type="radio" name="grp_option1" value="8" id="m8" onchange="play();"><label for="m6">URLから</label>
+      <input type="text" name="grp_option1" id="m7_text" onchange="play();"><label for="m7"></label>
+    </td>
+  </tr>
+  <tr>
+    <th>TimeDomain<br/>波形データ</th>
+    <td><canvas id="canvas1" width="256" height="255" style="border:1px solid #ccc;"></canvas></td>
+    <th>Frequency<br/>周波数スペクトル</th>
+    <td><canvas id="canvas2" width="256" height="255" style="border:1px solid #ccc;"></canvas></td>
+  </tr>
+  <tr>
+    <th>Frequency<br/>周波数(Hz)</th>
+    <td><h3 id="frequency">0</h3></td>
+    <th>Scale<br/>音階</th>
+    <td><h3 id="scale">0</h3></td>
+  </tr>
+</table>
+<p>波形データの縦軸は周波数、横軸は時間。周波数スペクトルの縦軸は強度、横軸は周波数です。お使いのコンピュータのサンプリング周波数が48,000の場合は周波数スペクトルの周波数は12,000Hzまで表示されます。</p>
+<p>※砂嵐(曲)は<a href="https://dova-s.jp/">dova</a>さんが作成した曲を使用しています。
+    <a href="https://www.petitmonte.com/javascript/waveform_spectrum.html">参考</a>
+</p>
+
+<script src="./js/script.js"></script>
+</body>
+</html>
